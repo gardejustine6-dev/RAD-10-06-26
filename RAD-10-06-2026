@@ -1,0 +1,33 @@
+import java.util.Scanner;
+
+public class PersonalInfo {
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+        
+        System.out.println("=== Personal Information ===");
+        
+        // Inputs with correct data types
+        System.out.print("Enter your name: ");
+        String name = input.nextLine();
+        
+        System.out.print("Enter your age: ");
+        int age = input.nextInt();
+        input.nextLine(); // consume leftover newline
+        
+        System.out.print("Enter your address: ");
+        String address = input.nextLine();
+        
+        System.out.print("Enter your weight (kg): ");
+        double weight = input.nextDouble();
+        
+        System.out.print("Enter your height (meters): ");
+        double height = input.nextDouble();
+        
+        // Output in sentence form
+        System.out.println("\n--- Your Details ---");
+        System.out.println("My name is " + name + ". I am " + age + " years old. I live at " + address + ".");
+        System.out.println("My weight is " + weight + " kilograms and my height is " + height + " meters.");
+        
+        input.close();
+    }
+}
