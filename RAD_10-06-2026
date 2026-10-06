@@ -1,0 +1,63 @@
+import java.util.Scanner;
+
+public class Calculator {
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+        String again;
+        
+        System.out.println("=== Arithmetic Calculator ===");
+        
+        do {
+            // Enter values X and Y
+            System.out.print("\nEnter value of X: ");
+            double x = input.nextDouble();
+            
+            System.out.print("Enter value of Y: ");
+            double y = input.nextDouble();
+            
+            // Choose operator
+            System.out.println("\nAvailable Operators: +  -  *  /");
+            System.out.print("Enter operator: ");
+            char op = input.next().charAt(0);
+            
+            double result = 0;
+            boolean valid = true;
+            
+            // Switch case for operations
+            switch (op) {
+                case '+':
+                    result = x + y;
+                    System.out.println("Result: " + x + " + " + y + " = " + result);
+                    break;
+                case '-':
+                    result = x - y;
+                    System.out.println("Result: " + x + " - " + y + " = " + result);
+                    break;
+                case '*':
+                    result = x * y;
+                    System.out.println("Result: " + x + " * " + y + " = " + result);
+                    break;
+                case '/':
+                    if (y == 0) {
+                        System.out.println("Error: Cannot divide by zero!");
+                        valid = false;
+                    } else {
+                        result = x / y;
+                        System.out.println("Result: " + x + " / " + y + " = " + result);
+                    }
+                    break;
+                default:
+                    System.out.println("Error: Invalid operator! Use +, -, *, or /");
+                    valid = false;
+            }
+            
+            // Ask to repeat
+            System.out.print("\nCalculate again? (yes/no): ");
+            again = input.next();
+            
+        } while (again.equalsIgnoreCase("yes"));
+        
+        System.out.println("Program ended. Thank you!");
+        input.close();
+    }
+}
